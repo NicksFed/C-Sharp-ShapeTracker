@@ -14,6 +14,13 @@ namespace ShapeTracker.Models
     {
       _side1 = length1;
     }
+    public int Side2 { get; }
+
+    public Triangle(int length1, int length2)
+    {
+      _side1 = length1;
+      Side2 = length2;
+    }
   }
 }
 
