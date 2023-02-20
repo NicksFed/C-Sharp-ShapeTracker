@@ -13,7 +13,6 @@ namespace ShapeTracker.Tests
     public void RectangleConstructor_CreatesInstanceOfRectangle_Rectangle()
     {
       Rectangle newRectangle = new Rectangle(2, 3);
-      // Assert.AreEqual(typeof(Rectangle), newRectangle.GetArea());
     }
 
     [TestMethod]
@@ -62,6 +61,16 @@ namespace ShapeTracker.Tests
       newRectangle.Side2 = newLength2;
       // Assert
       Assert.AreEqual(newLength2, newRectangle.Side2);
+    }
+
+    public void GetArea_DeterminesTheAreaOfARectangle_Int()
+    {
+      // Arrange
+      Rectangle rectangleArea = new Rectangle(3, 4);
+      // Action 
+      int recArea = rectangleArea.GetArea();
+      // Assert
+      Assert.AreEqual(12, rectangleArea);
     }
   }
 }
