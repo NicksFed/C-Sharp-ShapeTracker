@@ -18,12 +18,12 @@ namespace ShapeTracker.Tests
     public void GetSide1_ReturnSide1_Int()
     {
         // Arrange
-        int length1 = 3;
-        Triangle newTriangle = new Triangle(length1);
+        Triangle newTriangle = new Triangle(3);
+        int newLength1 = 44;
         // Act
-        int result = newTriangle.Side1;
+        newTriangle.Side1 = newLength1;
         // Assert
-        Assert.AreEqual(length1, result);
+        Assert.AreEqual(newLength1, newTriangle.Side1);
     }
         
   }
