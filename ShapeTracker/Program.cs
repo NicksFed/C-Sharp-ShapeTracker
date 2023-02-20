@@ -22,7 +22,7 @@ namespace ShapeTracker
 			int length2 = int.Parse(stringNumber2);
 			int length3 = int.Parse(stringNumber3);
 			Triangle tri = new Triangle(length1, length2, length3);
-			Console.WriteLine($"the value of tri is: {tri}");
+			Console.WriteLine($"the value of tri is: {tri.Side1}");
 			ConfirmOrEditTriangle(tri);
 		}
 
@@ -66,7 +66,7 @@ namespace ShapeTracker
 			Console.WriteLine("What's next?");
 			Console.WriteLine("Would you like to check a new triangle (new)?");
 			Console.WriteLine(
-				"Please enter 'new' to check the type of a new triangle or to see all triangles, enter 'all'. To exit, enter any key"
+				"Please enter 'new' to check the type of a new triangle or to see all triangles, enter 'all'. To exit, enter any key. To clear all triangles and start over enter 'clear'."
 			);
 			string userResponse = Console.ReadLine();
 			if (userResponse == "new" || userResponse == "New")
@@ -76,12 +76,17 @@ namespace ShapeTracker
 			else if (userResponse == "all" || userResponse == "All")
 			{
         List<Triangle> allTriangles = Triangle.GetAll();
-        Type objType = allTriangles.GetType();
         for (int index = 0; index < allTriangles.Count; index++)
         // foreach (object individualEntry in allTriangles)
         {
           Console.WriteLine($"Triangle #{(index + 1)}: {allTriangles[index].Side1}, {allTriangles[index].Side2}, {allTriangles[index].GetSide3()}, {allTriangles[index].CheckType()}");
         }
+				CheckTriangleType(tri);
+      }
+			else if (userResponse == "clear" || userResponse == "Clear")
+			{
+        Triangle.ClearAll();
+        Main();
       }
 			else
 			{
